@@ -1,9 +1,7 @@
 <template>
-  <div id="app">
-    <side-bar>
-      <router-view></router-view>
-    </side-bar>
-  </div>
+  <side-bar>
+    <router-view></router-view>
+  </side-bar>
 </template>
 
 <script>

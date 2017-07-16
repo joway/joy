@@ -1,38 +1,52 @@
 <template>
   <v-app standalone>
-    <v-navigation-drawer style="position: fixed" persistent absolute height="100%" clipped enable-resize-watcher v-model="drawer">
-      <v-list dense>
-        <v-subheader class="mt-3 grey--text text--darken-1">SUBSCRIPTIONS</v-subheader>
+    <v-navigation-drawer style="position: fixed" persistent v-model="drawer" class="pb-0" dark>
+      <v-list>
         <v-list-tile class="mt-3">
-          <v-list-tile-action>
-            <v-icon class="grey--text text--darken-1">add_circle_outline</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title class="grey--text text--darken-1">Browse Channels</v-list-tile-title>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <span>Menu</span>
+            </v-list-tile-title>
+          </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon class="grey--text text--darken-1">settings</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title class="grey--text text--darken-1">Manage Subscriptions</v-list-tile-title>
-        </v-list-tile>
+        <v-divider></v-divider>
+        <v-list-item>
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-icon dark>home</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>Home</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-item>
+        <v-list-item>
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-icon dark>home</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>Home</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar class="blue" style="position: fixed">
+  
+    <v-toolbar class="indigo" style="position: fixed">
       <v-toolbar-title>
-        <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <v-toolbar-side-icon dark @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       </v-toolbar-title>
     </v-toolbar>
+  
     <main class="main">
-      <v-container>
-        <v-layout>
-          <v-flex xs12>
-            <slot>
-              只有在没有要分发的内容时才会显示。
-            </slot>
-          </v-flex>
-        </v-layout>
-      </v-container>
+      <slot>
+        只有在没有要分发的内容时才会显示。
+      </slot>
     </main>
+    <v-footer class="indigo" style="position: absolute;color: #fff;bottom: 0;width: 100%;">
+      <span>© {{ new Date().getFullYear() }}</span>
+    </v-footer>
   </v-app>
 </template>
 
